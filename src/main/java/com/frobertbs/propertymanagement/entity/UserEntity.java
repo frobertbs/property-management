@@ -1,9 +1,13 @@
 package com.frobertbs.propertymanagement.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
-@Table(name = "User")
+@Table(name = "User_Table")
+@Setter
+@Getter
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

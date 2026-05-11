@@ -49,7 +49,6 @@ public class PropertyServiceImpl implements PropertyService {
         Optional<PropertyEntity> optionalPropertyEntity = propertyRepository.findById(propertyId);
         if(optionalPropertyEntity.isPresent()){
             PropertyEntity propertyEntity = optionalPropertyEntity.get();
-            propertyEntity.setOwnerName(propertyDTO.getOwnerName());
             propertyEntity.setAddress(propertyDTO.getAddress());
             propertyEntity.setPrice(propertyDTO.getPrice());
             propertyEntity.setTitle(propertyDTO.getTitle());
@@ -97,7 +96,6 @@ public class PropertyServiceImpl implements PropertyService {
         Optional<PropertyEntity> optionalPropertyEntity = propertyRepository.findById(propertyId);
         if(optionalPropertyEntity.isPresent()){
             PropertyEntity propertyEntity = optionalPropertyEntity.get();
-            propertyEntity.setOwnerName(propertyDTO.getOwnerName());
             result = propertyConverter.convertPropertyEntityToDTO(propertyEntity);
             propertyRepository.save(propertyEntity);
         }
