@@ -32,6 +32,8 @@ public class PropertyServiceImpl implements PropertyService {
 
     @Override
     public List<PropertyDTO> findAllProperties() {
+
+        System.out.println("Inside dev branch I have made a change.");
         List<PropertyEntity> properties = (List<PropertyEntity>)propertyRepository.findAll();
         List<PropertyDTO> propertiesDTO = new ArrayList<>();
         for (PropertyEntity propertyEntity : properties) {
