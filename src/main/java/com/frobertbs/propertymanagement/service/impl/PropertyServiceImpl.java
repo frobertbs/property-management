@@ -32,6 +32,8 @@ public class PropertyServiceImpl implements PropertyService {
 
     @Override
     public List<PropertyDTO> findAllProperties() {
+
+        System.out.println("Inside dev branch I have made a change.");
         List<PropertyEntity> properties = (List<PropertyEntity>)propertyRepository.findAll();
         List<PropertyDTO> propertiesDTO = new ArrayList<>();
         for (PropertyEntity propertyEntity : properties) {
@@ -47,7 +49,6 @@ public class PropertyServiceImpl implements PropertyService {
         Optional<PropertyEntity> optionalPropertyEntity = propertyRepository.findById(propertyId);
         if(optionalPropertyEntity.isPresent()){
             PropertyEntity propertyEntity = optionalPropertyEntity.get();
-            propertyEntity.setOwnerName(propertyDTO.getOwnerName());
             propertyEntity.setAddress(propertyDTO.getAddress());
             propertyEntity.setPrice(propertyDTO.getPrice());
             propertyEntity.setTitle(propertyDTO.getTitle());
@@ -95,7 +96,6 @@ public class PropertyServiceImpl implements PropertyService {
         Optional<PropertyEntity> optionalPropertyEntity = propertyRepository.findById(propertyId);
         if(optionalPropertyEntity.isPresent()){
             PropertyEntity propertyEntity = optionalPropertyEntity.get();
-            propertyEntity.setOwnerName(propertyDTO.getOwnerName());
             result = propertyConverter.convertPropertyEntityToDTO(propertyEntity);
             propertyRepository.save(propertyEntity);
         }

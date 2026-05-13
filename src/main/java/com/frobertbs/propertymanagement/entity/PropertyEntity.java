@@ -26,9 +26,6 @@ public class PropertyEntity {
     @Column(name = "Description")
     private String description;
 
-    @Column(name = "OwnerName", nullable = false)
-    private String ownerName;
-    
     @Column(name = "Price")
     private Double price;
 

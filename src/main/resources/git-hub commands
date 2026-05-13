@@ -2,5 +2,5 @@
 2. git add .
 3. git commit -m "Initial commit"
 4. git remote add origin <repository-url>
-5.git remote --set-url https://username:<token>@github.com/username/repository.git
-6.git push -u origin master
+5. git remote --set-url https://username:<token>@github.com/username/repository.git
+6. git push -u origin master
