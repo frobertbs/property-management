@@ -5,19 +5,21 @@ import com.frobertbs.propertymanagement.dto.UserDTO;
 import com.frobertbs.propertymanagement.entity.UserEntity;
 import com.frobertbs.propertymanagement.repository.UserRepository;
 import com.frobertbs.propertymanagement.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserServiceImpl implements UserService {
 
     // Injections of Dependencies
-    @Autowired
-    private UserRepository userRepository;
 
-    @Autowired
-    private UserConverter userConverter;
+    private final UserRepository userRepository;
 
+    private final UserConverter userConverter;
+
+    public UserServiceImpl(UserRepository userRepository, UserConverter userConverter){
+        this.userRepository = userRepository;
+        this.userConverter = userConverter;
+    }
 
     @Override
     public UserDTO register(UserDTO userDTO) {

@@ -2,8 +2,9 @@ package com.frobertbs.propertymanagement.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.*;
-import org.springframework.web.service.annotation.GetExchange;
 
 @Getter
 @Setter
@@ -14,8 +15,15 @@ import org.springframework.web.service.annotation.GetExchange;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UserDTO {
     private Long id;
+
     private String ownerName;
+
+    @NotNull(message = "Email is mandatory")
     private String email;
+
     private String phone;
+
+    @Size(min = 6, max = 15, message = "Password must be between 6 and 15 characters")
+    @NotNull
     private String password;
 }
